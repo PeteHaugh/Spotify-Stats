@@ -5,17 +5,19 @@ const StyledTrackList = styled.ul`
   margin: 0;
   padding: 0;
 
+
   .track__item {
     display: grid;
     align-items: center;
     grid-template-columns: 20px 1fr;
     grid-gap: var(--spacing-md);
-    padding: var(--spacing-xs);
+    padding: var(--spacing-md);
     color: var(--light-grey);
-    font-size: var(--fz-sm);
+    font-size: var(--fz-md);
     border-radius: var(--border-radius-subtle);
     transition: background-color 0.3s ease;
     cursor: default;
+    margin-bottom: 5px;
 
     @media (min-width: 768px) {
       grid-template-columns: 20px 4fr 2fr minmax(60px, 1fr);
@@ -44,8 +46,8 @@ const StyledTrackList = styled.ul`
 
   .track__item__img {
     margin-right: var(--spacing-sm);
-    width: 40px;
-    height: 40px;
+    width: 80px;
+    height: 80px;
     flex-shrink: 0;
     background-color: var(--dark-grey);
   }
