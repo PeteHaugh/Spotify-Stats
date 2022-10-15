@@ -1,21 +1,29 @@
-import { useState, useEffect, useLayoutEffect } from 'react';
+import { useState, useEffect, useLayoutEffect } from "react";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   useLocation,
-} from 'react-router-dom';
-import { accessToken, logout } from './Spotify';
-import { Login, Playlists, Profile, Playlist, TopArtists, TopTracks } from './pages';
-import { GlobalStyle } from './styles';
-import styled from 'styled-components/macro';
+} from "react-router-dom";
+import { accessToken, logout } from "./Spotify";
+import {
+  Login,
+  Playlists,
+  Profile,
+  Playlist,
+  TopArtists,
+  TopTracks,
+} from "./pages";
+import { GlobalStyle } from "./styles";
+import { AppLayout } from "./components/index";
+import styled from "styled-components/macro";
 
 const StyledLogoutButton = styled.button`
   position: absolute;
   top: var(--spacing-sm);
   right: var(--spacing-md);
   padding: var(--spacing-xs) var(--spacing-sm);
-  background-color: rgba(0,0,0,.7);
+  background-color: rgba(0, 0, 0, 0.7);
   color: var(--white);
   font-size: var(--fz-sm);
   font-weight: 700;
@@ -32,7 +40,7 @@ const ScrollToTop = () => {
     document.documentElement.scrollTo(0, 0);
   }, [pathname]);
   return null;
-} 
+};
 
 function App() {
   const [token, setToken] = useState(null);
@@ -40,35 +48,26 @@ function App() {
   useEffect(() => {
     setToken(accessToken);
   }, []);
-  
+
   return (
     <div className="app">
       <GlobalStyle />
-      
+
       {!token ? (
         <Login />
       ) : (
         <>
           <StyledLogoutButton onClick={logout}>Log Out</StyledLogoutButton>
-
-
           <Router>
             <ScrollToTop />
 
             <Routes>
-              <Route path="/top-artists" element={<TopArtists />}>
-              </Route>
-              <Route path="/top-tracks" element={<TopTracks />}>
-                
-              </Route>
-              <Route path="/playlists/:id" element={<Playlist />}>
-                
-              </Route>
-              <Route path="/playlists" element={<Playlists />}>
-                
-              </Route>
-              <Route path="/" element={<Profile />}>
-                
+              <Route element={<AppLayout />}>
+                <Route path="/top-artists" element={<TopArtists />}></Route>
+                <Route path="/top-tracks" element={<TopTracks />}></Route>
+                <Route path="/playlists/:id" element={<Playlist />}></Route>
+                <Route path="/playlists" element={<Playlists />}></Route>
+                <Route path="/" element={<Profile />}></Route>
               </Route>
             </Routes>
           </Router>

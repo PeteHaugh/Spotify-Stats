@@ -4,3 +4,5 @@ export { default as SectionWrapper } from './SectionWrapper';
 export { default as TimeRangeButtons } from './TimeRangeButtons';
 export { default as TrackList } from './TrackList';
 export { default as Loader } from './Loader';
+export { default as AppLayout } from './AppLayout';
+export { default as Burger } from './Burger';

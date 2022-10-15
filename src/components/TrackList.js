@@ -11,16 +11,15 @@ const TrackList = ({ tracks }) => {
   return (
     <>
       {tracks && tracks.length ? (
-        <StyledTrackList onMouseLeave={() => setPlay(false)}>
+        <StyledTrackList >
           {tracks.map((track, i) => (
             <li
               className="track__item"
               key={i}
               onMouseEnter={() => {
-                toggle();
                 setHover(i);
               }}
-              onMouseLeave={() => toggle()}
+              onClick={() => toggle()}
             >
               <div className="track__item__num">{i + 1}</div>
               <div className="track__item__title-group">
@@ -56,7 +55,7 @@ const TrackList = ({ tracks }) => {
         <p className="empty-notice">No tracks available</p>
       )}
       {play && (
-        <video controls="" autoplay="" name="media">
+        <video display="none" controls="" autoplay="" name="media">
           <source src={tracks[hover].preview_url} type="audio/mpeg" />
         </video>
       )}

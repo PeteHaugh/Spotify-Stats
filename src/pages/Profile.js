@@ -11,9 +11,11 @@ import {
     ArtistsGrid, 
     TrackList,
     PlaylistsGrid,
-    Loader 
+    Loader ,
+    AppLayout
 } from '../components'
 import { StyledHeader } from '../styles';
+import { Outlet } from 'react-router-dom';
 
 const Profile = () => {
   const [profile, setProfile] = useState(null);
@@ -43,7 +45,7 @@ const Profile = () => {
     <>
       {profile && (
         <>
-          <StyledHeader type="user">
+          {/* <StyledHeader type="user">
             <div className="header__inner">
               {profile.images.length && profile.images[0].url && (
                 <img className="header__img" src={profile.images[0].url} alt="Avatar"/>
@@ -61,21 +63,21 @@ const Profile = () => {
                 </p>
               </div>
             </div>
-          </StyledHeader>
+          </StyledHeader> */}
 
           {topArtists && topTracks && playlists ? (
             <main>
-              <SectionWrapper title="Top artists this month" seeAllLink="/top-artists">
+              {/* <SectionWrapper title="Top artists this month" seeAllLink="/top-artists">
                 <ArtistsGrid artists={topArtists.items.slice(0, 10)} />
-              </SectionWrapper>
+              </SectionWrapper> */}
 
               <SectionWrapper title="Top tracks this month" seeAllLink="/top-tracks">
                 <TrackList tracks={topTracks.items.slice(0, 10)} />
               </SectionWrapper>
 
-              <SectionWrapper title="Playlists" seeAllLink="/playlists">
+              {/* <SectionWrapper title="Playlists" seeAllLink="/playlists">
                 <PlaylistsGrid playlists={playlists.items.slice(0, 10)} />
-              </SectionWrapper>
+              </SectionWrapper> */}
             </main>
           ) : (
             <Loader />

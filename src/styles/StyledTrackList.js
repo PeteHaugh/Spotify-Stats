@@ -46,8 +46,8 @@ const StyledTrackList = styled.ul`
 
   .track__item__img {
     margin-right: var(--spacing-sm);
-    width: 80px;
-    height: 80px;
+    width: 30px;
+    height: 30px;
     flex-shrink: 0;
     background-color: var(--dark-grey);
   }

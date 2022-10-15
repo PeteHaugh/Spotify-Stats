@@ -21,8 +21,9 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     width: 100%;
     max-width: 100%;
-    min-height: 100%;
+    min-height: 100vh;
     overflow-x: hidden;
+    overflow-y: hidden;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     background-color: var(--black);
