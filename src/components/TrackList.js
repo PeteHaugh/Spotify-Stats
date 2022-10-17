@@ -16,10 +16,13 @@ const TrackList = ({ tracks }) => {
             <li
               className="track__item"
               key={i}
+              onClick={() => toggle()}
               onMouseEnter={() => {
+                toggle();
                 setHover(i);
               }}
-              onClick={() => toggle()}
+              onMouseLeave={() => toggle()
+              }
             >
               <div className="track__item__num">{i + 1}</div>
               <div className="track__item__title-group">
