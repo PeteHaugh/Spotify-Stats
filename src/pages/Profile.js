@@ -16,6 +16,7 @@ import {
 } from '../components'
 import { StyledHeader } from '../styles';
 import { Outlet } from 'react-router-dom';
+import styled from 'styled-components';
 
 const Profile = () => {
   const [profile, setProfile] = useState(null);
@@ -66,10 +67,11 @@ const Profile = () => {
           </StyledHeader> */}
 
           {topArtists && topTracks && playlists ? (
-            <main>
+            <main position="relative">
               {/* <SectionWrapper title="Top artists this month" seeAllLink="/top-artists">
                 <ArtistsGrid artists={topArtists.items.slice(0, 10)} />
               </SectionWrapper> */}
+              <FreeButton onClick={() => console.log('It works!')}>HELLO!</FreeButton>
 
               <SectionWrapper title="Top tracks this month" seeAllLink="/top-tracks">
                 <TrackList tracks={topTracks.items.slice(0, 10)} />
@@ -89,3 +91,10 @@ const Profile = () => {
 };
 
 export default Profile;
+
+const FreeButton = styled.button`
+  position: absolute;
+  z-index: 999;
+  left: 830px;
+  top: 600px;
+`;
