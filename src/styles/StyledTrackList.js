@@ -9,17 +9,17 @@ const StyledTrackList = styled.ul`
   .item-enter {
     opacity: 0;
   }
-  .item-enter-active {
+  /* .item-enter-active {
     opacity: 1;
     transition: opacity 500ms ease-in;
-  }
+  } */
   .item-exit {
     opacity: 1;
   }
-  .item-exit-active {
+  /* .item-exit-active {
     opacity: 0;
     transition: opacity 500ms ease-in;
-  }
+  } */
 
   .track__item {
     display: grid;

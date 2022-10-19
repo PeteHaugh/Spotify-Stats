@@ -90,9 +90,10 @@ const FreeButton = styled.button`
   z-index: 999;
   left: 830px;
   top: 600px;
-  width: 75px;
-  height: 75px;
+  width: 80px;
+  height: 80px;
   background-color: var(--black);
+  border-radius: 2px;
 `;
 
 const MainDiv = styled.div`

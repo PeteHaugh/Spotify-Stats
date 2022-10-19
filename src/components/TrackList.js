@@ -11,14 +11,19 @@ const TrackList = ({ tracks, play }) => {
     <>
       {tracks && tracks.length ? (
         <StyledTrackList>
-          <TransitionGroup component={null}>
+          <TransitionGroup>
             {tracks.map((track, i) => (
-              <CSSTransition key={i} timeout={2000} classNames="item">
+              <CSSTransition
+                key={i}
+                timeout={0}
+                transitionName="item"
+                transitionEnterTimeout={500}
+                transitionLeaveTimeout={300}
+              >
                 <li
                   className={
                     selected === i ? "track__item__selected" : "track__item"
                   }
-                  style={{ transitionDelay: `${i + 1}00ms` }}
                   key={i}
                   onClick={() => {
                     setSelected(i);
