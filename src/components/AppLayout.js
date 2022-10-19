@@ -1,20 +1,22 @@
-import React, { useRef } from "react";
+import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
-
 import styled from "styled-components";
-import {Burger} from "./index";
 import Turntable from "./Turntable";
 
 function AppLayout() {
-  
+  const [play, setPlay] = useState(false);
+
+  const toggle = () => {
+    setPlay(!play);
+  };
+
   return (
     <>
-        {/* <h1>Scratch Practice!</h1> */}
-        <Burger/>
       <Layout>
         <AppBody>
-          <Outlet />
+          <Outlet play={play} />
         </AppBody>
+
         <TurntableDiv>
           <Turntable />
         </TurntableDiv>
@@ -30,14 +32,12 @@ const AppBody = styled.div`
 `;
 
 const TurntableDiv = styled.div`
-  padding-top: 50px;
   padding-left: 100px;
-  position: sticky;
-  height: 500px;
 `;
 
 const Layout = styled.div`
   display: flex;
   flex-direction: row;
-  max-height: 100vh;
+  height: 100vh;
+  align-items: center;
 `;

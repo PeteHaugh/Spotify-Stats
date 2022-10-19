@@ -4,9 +4,7 @@ const StyledHeader = styled.header`
   display: flex;
   align-items: flex-end;
   position: relative;
-  background: linear-gradient(transparent, rgba(0,0,0,0.5));
-  background-color: var(--grey);
-  height: 30vh;
+  height: 50vh;
   max-height: 500px;
   min-height: 250px;
 
@@ -14,21 +12,9 @@ const StyledHeader = styled.header`
     min-height: 340px;
   }
 
-  &:after {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 20vh;
-    background-color: var(--grey);
-    background-image: linear-gradient(rgba(0,0,0,0.6), var(--black));
-    position: absolute;
-    top: 100%;
-    z-index: -1;
-  }
-
   .header__inner {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     width: 100%;
     max-width: var(--site-max-width);
     margin: 0 auto;
@@ -40,13 +26,13 @@ const StyledHeader = styled.header`
   }
 
   img.header__img {
-    width: 20%;
+    width: 50%;
     max-width: 250px;
     min-width: 120px;
     margin-right: var(--spacing-lg);
     box-shadow: 0 4px 60px rgb(0 0 0 / 50%);
     background-color: var(--dark-grey);
-    border-radius: ${props => props.type === 'user' ? '50%' : '0'};
+    border-radius: 50%;
 
     @media (min-width: 768px) {
       margin-right: var(--spacing-xl);
@@ -58,6 +44,14 @@ const StyledHeader = styled.header`
     font-size: var(--fz-xxs);
     font-weight: 700;
     margin-bottom: var(--spacing-xs);
+  }
+
+  .header__underline {
+    text-transform: uppercase;
+    font-size: var(--fz-s);
+    font-weight: 700;
+    margin-bottom: var(--spacing-xs);
+    margin-top: var(--spacing-md);
   }
 
   h1.header__name {

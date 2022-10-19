@@ -1,6 +1,34 @@
-import styled from 'styled-components/macro';
+import styled from "styled-components/macro";
 
 const StyledSection = styled.section`
+  overflow-y: auto;
+  position: absolute;
+  top: 100px;
+  left: 0;
+  right: 0;
+  bottom: 100px;
+  height: 100vh;
+
+  ::-webkit-scrollbar {
+    background-color: var(--black);
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--near-black);
+    border-radius: 1px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--green);
+    border-radius: 2px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #b8babd;
+  }
 
   &:first-of-type {
     .section__inner {
@@ -38,7 +66,7 @@ const StyledSection = styled.section`
     color: var(--light-grey);
 
     &::after {
-      content: '/';
+      content: "/";
       display: block;
       margin: 0 var(--spacing-sm);
     }

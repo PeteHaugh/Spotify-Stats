@@ -3,15 +3,12 @@ import Sketch from "react-p5";
 import "p5/lib/addons/p5.sound";
 import styled from "styled-components";
 
-
 const Turntable = () => {
   let a = 0;
   let b = 0;
   let canvas;
-  let mySound;
   let Angle;
   let AngleOld = 0;
-  let AngleV = 0;
   let record;
   let rotation = 0;
   let tonearm;
@@ -28,10 +25,6 @@ const Turntable = () => {
   let size = 1;
 
   const preload = (p5) => {
-    p5.soundFormats("mp3", "ogg");
-    mySound = p5.loadSound(
-      "https://freesound.org/data/previews/612/612610_5674468-lq"
-    );
     record = p5.loadImage(require("../assets/images/turntable.png"));
     tonearm = p5.loadImage(require("../assets/images/tonearm.png"));
     sliderKnob = p5.loadImage(require("../assets/images/slider.png"));
@@ -50,7 +43,6 @@ const Turntable = () => {
       .createCanvas(700 * size, 880 * size, "relative")
       .parent("canvasParent");
     p5.pixelDensity(1);
-    mySound.loop();
     p5.angleMode(p5.DEGREES);
 
     p5.rectMode(p5.CENTER);
@@ -86,16 +78,11 @@ const Turntable = () => {
     }
 
     Angle = a + b;
-    AngleV = (Angle - AngleOld) / (1 / 60) / size ** 2;
 
     p5.translate(p5.width / 2, 500 * size);
     p5.rotate(a * val + b);
     p5.image(record, -325 * size, -325 * size, 650 * size, 650 * size);
     p5.pop();
-
-    let speed = (AngleV / 180) * val;
-    speed = p5.constrain(speed, -5, 5);
-    mySound.rate(speed);
 
     AngleOld = Angle;
 
@@ -165,12 +152,9 @@ const Turntable = () => {
   }
 
   function pause() {
-    if (mySound.isPlaying()) {
-      // .isPlaying() returns a boolean
-      mySound.pause();
+    if (rotation === 1) {
       rotation = 0;
     } else {
-      mySound.loop(); // playback will resume from the pause position
       rotation = 1;
     }
   }

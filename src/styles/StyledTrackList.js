@@ -1,10 +1,25 @@
-import styled from 'styled-components/macro';
+import styled from "styled-components/macro";
 
 const StyledTrackList = styled.ul`
   list-style: none;
   margin: 0;
   padding: 0;
+  overflow-y: visible;
 
+  .item-enter {
+    opacity: 0;
+  }
+  .item-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+  }
+  .item-exit {
+    opacity: 1;
+  }
+  .item-exit-active {
+    opacity: 0;
+    transition: opacity 500ms ease-in;
+  }
 
   .track__item {
     display: grid;
@@ -25,6 +40,30 @@ const StyledTrackList = styled.ul`
     }
 
     &:hover,
+    &:focus {
+      background-color: var(--dark-grey);
+    }
+  }
+
+  .track__item__selected {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 20px 1fr;
+    grid-gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    color: var(--light-grey);
+    font-size: var(--fz-md);
+    border-radius: var(--border-radius-subtle);
+    background-color: var(--green);
+    transition: background-color 0.3s ease;
+    cursor: default;
+    margin-bottom: 5px;
+
+    @media (min-width: 768px) {
+      grid-template-columns: 20px 4fr 2fr minmax(60px, 1fr);
+      padding: var(--spacing-xs) var(--spacing-sm);
+    }
+
     &:focus {
       background-color: var(--dark-grey);
     }
